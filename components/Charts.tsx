@@ -48,9 +48,7 @@ export const Charts = ({ data }: ChartsProps) => {
           </div>
         </div>
         
-        <div className="text-[10px] font-mono text-white/40 uppercase tracking-widest">
-          Node Sync: Active
-        </div>
+
       </div>
 
       <div className="flex-1 w-full flex flex-col justify-center items-center min-h-0">
