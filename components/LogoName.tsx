@@ -11,24 +11,27 @@ interface LogoNameProps {
 
 export const LogoName = ({ logoimage, icon: Icon, title, active }: LogoNameProps) => {
     return (
-        <div
-            className={`logoName w-full h-[60px] p-1 flex justify-between items-center border rounded-lg transition-all duration-200 cursor-pointer ${active ? 'bg-accentPrimary/10 border-accentPrimary' : 'border-borderPrimary bg-white/5 hover:bg-white/10'
-                }`}
-        >
-            <div className={`logoIcon w-[30%] flex justify-center items-center h-full border rounded-full overflow-hidden ${active ? 'border-accentPrimary' : 'border-borderPrimary'
-                }`}>
-                {logoimage && (
-                    <Image src={logoimage} width={100} height={100} alt="logo" className="w-full h-full object-contain bg-white" />
-                )}
-                {Icon && (
-                    <Icon size={24} className={active ? 'text-accentPrimary' : 'text-textTertiary'} />
-                )}
+        <div className="flex items-center gap-4 py-4 group cursor-pointer">
+            <div className="relative">
+                {/* Glow Effect */}
+                <div className="absolute inset-0 bg-accentPrimary/20 blur-xl rounded-full scale-125 opacity-0 group-hover:opacity-100 transition-opacity" />
+                
+                <div className="relative w-12 h-12 rounded-2xl bg-white flex items-center justify-center overflow-hidden shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/10 group-hover:scale-110 transition-transform duration-500 ease-out">
+                    {logoimage ? (
+                        <Image src={logoimage} width={48} height={48} alt="logo" className="w-[85%] h-[85%] object-contain" />
+                    ) : Icon ? (
+                        <Icon size={24} className="text-black" />
+                    ) : (
+                        <span className="text-black font-black text-2xl italic tracking-tighter">A</span>
+                    )}
+                </div>
             </div>
 
-            <h1 className={`w-[70%] h-full p-1 text-sm flex justify-center items-center font-bold uppercase tracking-wide text-center leading-tight ${active ? 'text-accentPrimary' : 'text-textPrimary'
-                }`}>
-                {title}
-            </h1>
+            <div className="flex flex-col justify-center">
+                <h1 className="text-2xl font-black text-white uppercase tracking-[-0.07em] leading-none">
+                    {title}
+                </h1>
+            </div>
         </div>
     );
 };
