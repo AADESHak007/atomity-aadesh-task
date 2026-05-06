@@ -24,8 +24,8 @@ const menuGroups = [
 
 export const SideBar = () => {
     return (
-        <div className="sidebar w-[22%] h-full p-6 bg-[#0f0f0f] flex flex-col justify-between box-border border-r border-borderPrimary">
-            <div className="flex flex-col gap-10">
+        <aside className="w-[22%] min-w-[280px] h-full bg-[#0a0a0a] flex flex-col border-r border-borderPrimary select-none">
+            <div className="flex flex-col flex-1 px-4 py-8 gap-10 overflow-y-auto custom-scrollbar">
                 {/* Brand Logo */}
                 <div className="px-2">
                     <LogoName logoimage={logoimage} title="ATOMITY" />
@@ -35,21 +35,21 @@ export const SideBar = () => {
                 <div className="flex flex-col gap-8">
                     {menuGroups.map((group, gIndex) => (
                         <div key={gIndex} className="flex flex-col gap-3">
-                            <h3 className="px-4 text-[11px] font-bold text-accentPrimary uppercase tracking-[0.15em] opacity-80">
-                                {group.title === 'Main' ? 'OVERVIEW' : 'FINANCE'}
+                            <h3 className="px-4 text-[10px] font-black text-accentPrimary uppercase tracking-[0.2em] opacity-60">
+                                {group.title === 'Main' ? 'OVERVIEW' : 'SYSTEM'}
                             </h3>
-                            <nav className="flex flex-col gap-1">
+                            <nav className="flex flex-col gap-1.5">
                                 {group.items.map((item, index) => (
                                     <div
                                         key={index}
-                                        className={`flex items-center gap-3 p-2.5 rounded-lg transition-all cursor-pointer group ${
+                                        className={`flex items-center gap-3.5 px-4 py-3 rounded-2xl transition-all duration-300 cursor-pointer group ${
                                             item.active 
-                                            ? 'bg-[#1e1e1e] text-white' 
-                                            : 'hover:bg-[#1a1a1a] text-[#a1a1a1] hover:text-white'
+                                            ? 'bg-white/5 text-white shadow-[inset_0_0_20px_rgba(255,255,255,0.02)] border border-white/5' 
+                                            : 'text-[#64748b] hover:text-white hover:bg-white/[0.02]'
                                         }`}
                                     >
-                                        <item.icon size={18} className="opacity-90" />
-                                        <span className="text-[14px] font-medium tracking-tight">
+                                        <item.icon size={18} className={`transition-transform duration-300 ${item.active ? 'text-accentPrimary scale-110' : 'group-hover:scale-110'}`} />
+                                        <span className={`text-[13px] font-bold tracking-wide transition-all ${item.active ? 'translate-x-0.5' : ''}`}>
                                             {item.label}
                                         </span>
                                     </div>
@@ -60,23 +60,27 @@ export const SideBar = () => {
                 </div>
             </div>
 
-            <div className="mt-auto flex flex-col gap-4">
-                {/* User Profile Section */}
-                <div className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.05] flex items-center gap-3 group cursor-pointer hover:bg-white/[0.05] transition-all">
-                    <div className="w-9 h-9 rounded-full bg-[#1e1e1e] flex items-center justify-center border border-white/10">
-                        <User size={18} className="text-white opacity-80" />
+            {/* Footer Section */}
+            <div className="p-4 border-t border-borderPrimary bg-black/20 backdrop-blur-sm">
+                <div className="flex flex-col gap-2">
+                    {/* User Profile */}
+                    <div className="p-3 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center gap-3 group cursor-pointer hover:bg-white/[0.06] transition-all duration-300">
+                        <div className="w-10 h-10 rounded-xl bg-[#1e1e1e] flex items-center justify-center border border-white/10 group-hover:border-accentPrimary/50 transition-colors">
+                            <User size={20} className="text-white opacity-80" />
+                        </div>
+                        <div className="flex flex-col">
+                            <span className="text-[13px] font-black text-white tracking-tight">Aadesh Ak</span>
+                            <span className="text-[9px] font-bold text-accentPrimary/70 uppercase tracking-widest">Pro Account</span>
+                        </div>
                     </div>
-                    <div className="flex flex-col">
-                        <span className="text-[13px] font-bold text-white tracking-tight">Aadesh Ak</span>
-                        <span className="text-[10px] font-medium text-[#717171] uppercase tracking-wider">Pro Account</span>
-                    </div>
-                </div>
 
-                <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-red-500/10 transition-all cursor-pointer text-[#a1a1a1] hover:text-red-500 group">
-                    <LogOut size={18} className="group-hover:translate-x-1 transition-transform" />
-                    <span className="text-[13px] font-medium tracking-tight">Logout</span>
+                    {/* Logout */}
+                    <button className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-red-500/5 transition-all duration-300 text-[#64748b] hover:text-red-400 group w-full text-left">
+                        <LogOut size={18} className="group-hover:-translate-x-1 transition-transform" />
+                        <span className="text-[12px] font-black uppercase tracking-widest">Logout</span>
+                    </button>
                 </div>
             </div>
-        </div>
+        </aside>
     );
 };

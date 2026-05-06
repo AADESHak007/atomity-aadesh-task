@@ -24,7 +24,7 @@ export const KPICard: React.FC<KPICardProps> = ({ title, metricKey, totalValue }
   const isPeek = !!hoveredData;
 
   return (
-    <div className={`rounded-[32px] p-8 flex flex-col justify-between h-full w-full border border-borderPrimary bg-[#0a0d17]/80 backdrop-blur-xl transition-all duration-500 group relative overflow-hidden ${
+    <div className={`rounded-[24px] lg:rounded-[32px] p-4 lg:p-8 flex flex-col justify-between h-full w-full border border-borderPrimary bg-[#0a0d17]/80 backdrop-blur-xl transition-all duration-500 group relative overflow-hidden ${
       isPeek ? 'shadow-[0_0_20px_rgba(124,58,237,0.15)]' : 'shadow-xl'
     }`}>
       {/* Background Decorative Gradient */}
@@ -53,7 +53,7 @@ export const KPICard: React.FC<KPICardProps> = ({ title, metricKey, totalValue }
 
       {/* Value Section */}
       <div className="flex items-center z-10">
-        <h2 className={`text-4xl font-black transition-all duration-300 tracking-tighter ${
+        <h2 className={`text-2xl lg:text-4xl font-black transition-all duration-300 tracking-tighter ${
           isPeek ? 'text-white scale-105' : 'text-textPrimary'
         }`}>
           ${displayValue?.toLocaleString()}

@@ -20,7 +20,7 @@ export const DetailedInfo = ({ data, onSelect: propOnSelect, selectedId: propSel
     };
 
     return (
-        <table className="w-full text-xs font-sans">
+        <table className="w-full min-w-[640px] text-xs font-sans">
             <thead>
                 <tr className="border-b border-borderPrimary">
                     <th className="text-left pb-6 pl-4 text-[#94a3b8] font-black uppercase tracking-[0.25em] text-[9px] opacity-70">Resource Name</th>

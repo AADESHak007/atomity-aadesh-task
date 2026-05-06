@@ -54,7 +54,7 @@ export const Charts = ({ data }: ChartsProps) => {
       </div>
 
       <div className="flex-1 w-full flex flex-col justify-center items-center min-h-0">
-        <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
         <BarChart data={data} margin={{ top: 10, right: 10, left: 10, bottom: 0 }} barGap={0}>
           <CartesianGrid vertical={false} strokeDasharray="8 8" stroke="rgba(255,255,255,0.05)" />
           <XAxis
