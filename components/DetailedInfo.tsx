@@ -9,7 +9,7 @@ interface DetailedInfoProps {
 export const DetailedInfo = ({ data, onSelect: propOnSelect, selectedId: propSelectedId }: DetailedInfoProps) => {
     const { drillDown, clusterId, nsId } = useDashboard();
     
-    // Use either the prop or the context value
+    
     const activeId = propSelectedId || nsId || clusterId;
     const handleSelect = (id: string) => {
         if (propOnSelect) {

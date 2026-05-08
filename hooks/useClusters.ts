@@ -1,5 +1,6 @@
 import { getClusters, getNameSpaces, getPods } from "@/services/api"
 import { useQuery } from "@tanstack/react-query"
+import {Initial_data} from '@/data' ;
 
 export const useDashboardData = (level: 'clusters' | 'namespaces' | 'pods', clusterId?: string | null, nsId?: string | null) => {
     return useQuery({
@@ -18,6 +19,7 @@ export const useDashboardData = (level: 'clusters' | 'namespaces' | 'pods', clus
             }
             return [];
         },
+        placeholderData : level === 'clusters' ? Initial_data : undefined,
         enabled: level === 'clusters' || (level === 'namespaces' && !!clusterId) || (level === 'pods' && !!clusterId && !!nsId),
         staleTime: 1000 * 60 * 5, // Cache for 5 minutes
     })
