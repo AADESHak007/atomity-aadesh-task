@@ -59,16 +59,16 @@ export const Charts = ({ data }: ChartsProps) => {
             dataKey="name"
             axisLine={false}
             tickLine={false}
-            tick={{ fill: "var(--color-text-tertiary)", fontWeight: 'bold', fontSize: 10, dy: 10 }}
+            tick={{ fill: tokens.colors.textTertiary, fontWeight: 'bold', fontSize: 10, dy: 10 }}
           />
           <Tooltip 
             cursor={{ fill: 'rgba(255, 255, 255, 0.03)' }} 
             contentStyle={{ backgroundColor: '#0a0d17', border: '1px solid #1a1f35', borderRadius: '12px', fontSize: '11px', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.5)' }}
-            itemStyle={{ color: 'var(--color-accent-primary)', fontWeight: 'bold' }}
+            itemStyle={{ color: tokens.colors.accentPrimary, fontWeight: 'bold' }}
           />
           <Bar
             dataKey="total"
-            fill="var(--color-accent-primary)"
+            fill={tokens.colors.accentPrimary}
             radius={[10, 10, 10, 10]}
             barSize={60}
             onMouseEnter={(data) => setHoveredData(data.payload)}

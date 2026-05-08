@@ -9,12 +9,12 @@ import { MobileNav } from "../components/MobileNav";
 import { DashboardSkeleton } from "../components/DashboardSkeleton";
 import { motion } from "framer-motion";
 
-// ── Animation timing constants ───────────────────────────────────────────────
+// ── Animation timing constants
 const SIDEBAR_DUR     = 1.0;
 const CHART_DELAY     = 0.5;
 const CHART_DUR       = 1.2;
 // KPIs & Table fire at 70% through the chart animation
-const SECONDARY_DELAY = CHART_DELAY + CHART_DUR * 0.7; // ≈ 1.34s
+const SECONDARY_DELAY = CHART_DELAY + CHART_DUR * 0.7; 
 
 const ease = [0.25, 0.46, 0.45, 0.94] as const; // smooth ease-out cubic
 
